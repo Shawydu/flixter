@@ -31,6 +31,8 @@ gem 'devise'
 gem 'simple_form'
 #Use carrierwave for uploading images
 gem 'carrierwave'
+# Use mini_magick for resizing uploading images
+gem 'mini_magick'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
