@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
 	belongs_to :user
 	has_many :sections
+	mount_uploader :image, ImageUploader
 
 	validates :title, :presence => {:message => "Title is straightforward for students"}
 	validates :description, :presence => {:message => "Let students get quick knowledge about this course"}

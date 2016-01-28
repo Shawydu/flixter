@@ -7,8 +7,8 @@ class Teacher::SectionsController < ApplicationController
 	end
 
 	def create
-		@section = @course.sections.create(section_params)
-		redirect_to teacher_course_path(@course)
+		@section = current_course.sections.create(section_params)
+		redirect_to teacher_course_path(current_course)
 	end
 
 	private
