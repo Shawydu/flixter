@@ -31,11 +31,12 @@ gem 'devise'
 gem 'simple_form'
 #Use carrierwave for uploading files
 gem 'carrierwave'
+gem 'carrierwave-aws'
 # Use mini_magick for resizing uploading images
 gem 'mini_magick'
 # Use figaro protect sensitive information
 gem 'figaro'
-gem 'fog'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
