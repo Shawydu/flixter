@@ -29,10 +29,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 #Use simple_form for adding form data
 gem 'simple_form'
-#Use carrierwave for uploading images
+#Use carrierwave for uploading files
 gem 'carrierwave'
 # Use mini_magick for resizing uploading images
 gem 'mini_magick'
+# Use figaro protect sensitive information
+gem 'figaro'
+gem 'fog'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
