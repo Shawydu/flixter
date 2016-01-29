@@ -2,35 +2,48 @@
 
 <div class="booyah-box col-xs-10 col-xs-offset-1">
 	<h1><%= @course.title %></h1>
-	<% if current_user && current_user == @course.user %>
-		<%= link_to 'Administer', teacher_course_path(@course), class: 'btn btn-danger btn-large pull-right' %>
-	<% end -%>
+	<%= image_tag @course.image, class: 'img-responsive' %>
+
 	<br>
 	<br>
 	<div class="col-xs-12 col-sm-4 text-center">
 		<span class="label label-default">
 			<%= number_to_currency @course.cost %>
 		</span>
-
+		<br>
+		<br>
+		<% if current_user && current_user.enrolled_in?(@course) %>
+			<h3 class="label label-info">You Are Enrolled!</h3>
+		<% else %>
+			<%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+		<% end -%>
+		<br>
+		<br>
+		<% if current_user && current_user == @course.user %>
+			<%= link_to 'Administer', teacher_course_path(@course), class: 'btn btn-danger btn-large' %>
+		<% end -%>
 	</div>
 
 	<div class="col-xs-12 col-sm-8">
 		<%= @course.description %>
 	</div>
-
+	<br>
 	<div class="col-xs-12">
 		<% @course.sections.each do |section| %>
 			<div class="section">
-				<%= section.title %>
+				<h3><%= section.title %></h3>
 				<% section.lessons.each do |lesson| %>
-					<div class="lesson">
-						<%= link_to lesson_path(lesson) do %>
-							<b><%= lesson.title %></b>
-							-
-							<%= lesson.subtitle %>
-						<% end -%>
+					<div class="col-xs-12 col-sm-6">
+						<div class="lesson text-center">
+							<%= link_to lesson_path(lesson) do %>
+								<b><%= lesson.title %></b>
+								<br>
+								<%= lesson.subtitle %>
+							<% end -%>
+						</div>
 					</div>
 				<% end %>
+				<br class="clear">
 			</div>
 		<% end %>
 	</div>
