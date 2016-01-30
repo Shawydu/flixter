@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
 	before_action :require_enroll_to_view_lesson
+
 	def show
 		
 	end
@@ -9,7 +10,7 @@ class LessonsController < ApplicationController
 	def require_enroll_to_view_lesson
 		@current_course = current_lesson.section.course
 		if !@current_course.user.enrolled_in?(@current_course)
-			redirect_to course_path(@current_course), alert: 'You Must Enroll as Beginning'
+			redirect_to course_path(@current_course), alert: 'You Must Enroll as a kick start!'
 		end
 	end
 

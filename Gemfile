@@ -36,6 +36,8 @@ gem 'carrierwave-aws'
 gem 'mini_magick'
 # Use figaro protect sensitive information
 gem 'figaro'
+# Use stripe performing payment function
+gem 'stripe'
 
 
 # Use ActiveModel has_secure_password
