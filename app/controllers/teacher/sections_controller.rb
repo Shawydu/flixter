@@ -18,10 +18,6 @@ class Teacher::SectionsController < ApplicationController
 
 	private
 
-	# def require_authorized_for_cu
-		
-	# end
-
 	def require_authorized_for_current_course
 		if current_course.user != current_user
 			return render text: 'Unauthorized', status: :unauthorized
