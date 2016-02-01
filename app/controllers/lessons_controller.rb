@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
 	def show
 		
 	end
-
+	
 	private
 
 	def require_enroll_to_view_lesson

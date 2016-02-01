@@ -39,6 +39,10 @@ gem 'figaro'
 # Use stripe performing payment function
 gem 'stripe'
 
+# Use ranked-model for updating items' order in database
+gem 'ranked-model'
+# Use jquery-ui-rails 
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
