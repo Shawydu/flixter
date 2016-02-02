@@ -2,9 +2,9 @@ class LessonsController < ApplicationController
 	before_action :require_enroll_to_view_lesson
 
 	def show
-		
+
 	end
-	
+
 	private
 
 	def require_enroll_to_view_lesson

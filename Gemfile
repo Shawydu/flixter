@@ -44,6 +44,9 @@ gem 'ranked-model'
 # Use jquery-ui-rails 
 gem 'jquery-ui-rails'
 
+# Use pry debug
+gem 'pry-rails', :group => :development
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
