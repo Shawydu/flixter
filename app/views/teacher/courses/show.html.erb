@@ -22,6 +22,10 @@
 			}
 		});
 
+		$('.new-lesson-button').click(function(event) {
+			var LessonUrl = $(event.target).data('lesson-url');
+			$('#newLessonForm').attr('action', LessonUrl);
+		});
 	});
 </script>
 
@@ -46,8 +50,10 @@
 					<span class="glyphicon glyphicon-list"></span>
 					<%= section.title %>
 				</div>
-				
-				<%= link_to 'New lesson', new_teacher_section_lesson_path(section), class: 'btn btn-primary btn-xs pull-right' %>
+				<!-- Button trigger modal -->
+				<button class="btn btn-primary btn-lg pull-right new-lesson-button" data-toggle="modal" data-target="#newLessonModal" data-lesson-url="<%= teacher_section_lessons_path(section) %>">
+				  New Lesson...
+				</button>
 				<br class="clear">
 				<br>
 				<ul class="lessons">
@@ -93,6 +99,32 @@
 		<% end -%>
       </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!--Lesson Modal -->
+<div class="modal fade" id="newLessonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="newLessonModalLabel">Add new Lesson</h4>
+      </div>
+      <%= simple_form_for @lesson, url: '#', html: { id: 'newLessonForm'} do |f| %>
+	      <div class="modal-body">
+			<%= f.input :title %>
+			<br>
+			<%= f.input :subtitle %>
+			<br>
+			<%= f.input :video %>
+			<br>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<%= f.submit 'Add', class: 'btn btn-primary' %>
+	      </div>
+      <% end -%>
     </div>
   </div>
 </div>
